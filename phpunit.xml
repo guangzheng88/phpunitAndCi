@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--bootstrap:自动加载的文件路径;colors:开启颜色显示;stopOnFailure:失败是否终止程序-->
+<phpunit  bootstrap="./tests/core/phpunit_bootstrap.php" verbose="true" colors="true" stopOnFailure="false">
+	<!--测试套件   
+		name： 套件名称
+		directory ：套件测试的目录，目录下一般放测试文件的用例
+		       suffix :测试文件后缀，如果不填写，则默认后缀为*Test.php,即phpunit 默认会执行*Test.php  的文件
+
+		       action:测试目录名
+		file：可以单独设置测试文件
+		exclude：排除不需要测试的文件-->
+	<testsuites>
+		<testsuite name="controllers">
+			<!--<directory suffix="Test.php">tests/libraries/ljorder</directory>-->
+			<directory suffix="Test.php">tests/controllers/</directory>
+		</testsuite>
+	</testsuites>
+    <!--
+	   	whitelist:测试白名单;blacklist:黑名单
+	   	processUncoveredFilesFromWhitelist:是否查看未被覆盖文件中有哪些行是可执行的;
+	   	suffix:后缀名称-->
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="false">
+            <directory suffix=".php">./application/controllers/unit</directory>
+        </whitelist>
+<!--         <blacklist>
+			<directory suffix=".php">system</directory>
+		</blacklist> -->
+    </filter>
+<!--生成测试覆盖报告 target:文件所在目录;type:文件类型(xml,html...)-->
+    <!-- <logging>
+        <log type="coverage-html" target="./reports/controllers/unit" charset="UTF-8"/>
+    </logging>  -->
+    <!--配置数据库信息,phpunit会自动加载此文件-->
+   <!--  <php>  
+        <var name="DB_DSN" value="mysql:dbname=nn_cms;host=localhost" />  
+        <var name="DB_UNIT" value="mysql:dbname=dbunit_test;host=localhost" />  
+        <var name="DB_USER" value="root" />  
+        <var name="DB_PASSWD" value="root" />  
+        <var name="DB_DBNAME" value="nn_cms" />  
+    </php>   -->
+</phpunit>
