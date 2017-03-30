@@ -1,3 +1,5 @@
+PHPUnit与CI框架的简单结合 简书地址：http://www.jianshu.com/p/53a599cf9245
+
 # CodeIgniter 2
 Open Source PHP Framework (originally from EllisLab)
 
